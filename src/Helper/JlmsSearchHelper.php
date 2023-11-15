@@ -1,5 +1,5 @@
 <?php
-defined('_JEXEC') or die('Restricted access');
+defined('_JEXEC') or die('Acceso restringido');
 
 class ModGuruSearch{
     public $child_categories = array();
@@ -164,7 +164,7 @@ class ModGuruSearch{
 		$user_id = $user->id;
 		$return = array();
 		$item_id = JRequest::getVar("Itemid", "0");
-		require_once(JPATH_SITE.DS."components".DS."com_guru".DS.'helpers'.DS.'helper.php');
+		require_once(JPATH_SITE.DS."components".DS."com_jlms".DS.'helpers'.DS.'helper.php');
 			
 		$helper = new guruHelper();
 		$itemid_seo = $helper->getSeoItemid();
@@ -216,7 +216,7 @@ class ModGuruSearch{
 				$teacher_id = $db->loadColumn();
 				$teacher_id = @$teacher_id["0"];
 				
-				$url = '<a href="'.JRoute::_('index.php?option=com_guru&view=guruauthor&layout=view&cid='.intval($teacher_id)."-".JFilterOutput::stringURLSafe($value["name"])."&Itemid=".intval($item_id)).'">'.$value["name"]."</a>";
+				$url = '<a href="'.JRoute::_('index.php?option=com_jlms&view=jlmsauthor&layout=view&cid='.intval($teacher_id)."-".JFilterOutput::stringURLSafe($value["name"])."&Itemid=".intval($item_id)).'">'.$value["name"]."</a>";
 				$return[] = $url;
 			}
 		}
@@ -238,7 +238,7 @@ class ModGuruSearch{
             if(strpos($images, "http") !== FALSE){
                 $image_path = $images;
             }
-            $thumb_src = "modules/mod_guru_courses/createthumbs.php?src=".$image_path."&amp;w=".$width."&amp;h=".$height;//."&zc=1";
+            $thumb_src = "modules/mod_jlms_courses/createthumbs.php?src=".$image_path."&amp;w=".$width."&amp;h=".$height;//."&zc=1";
             return $thumb_src;
         }
         
@@ -283,15 +283,15 @@ class ModGuruSearch{
     function getCourseLevel($course, $params){
         switch($course["level"]){
             case "0" : { 
-                $return = JText::_("GURU_BEGINNERS");
+                $return = JText::_("JLMS_BEGINNERS");
                 break;
             }
             case "1" : { 
-                $return = JText::_("GURU_INTERMEDIATE");
+                $return = JText::_("JLMS_INTERMEDIATE");
                 break;
             }
             case "2" : { 
-                $return = JText::_("GURU_ADVANCED");
+                $return = JText::_("JLMS_ADVANCED");
                 break;
             }
         }

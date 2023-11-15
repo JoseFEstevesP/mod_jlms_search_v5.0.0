@@ -1,3 +1,4 @@
+<!-- TODO: a los filename cambiarlo y ponerlo de la manera que es para J5  -->
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="3.0" client="site" method="upgrade">
 	<name>Guru Search Courses</name>
@@ -9,59 +10,60 @@
 	<authorEmail>webmaster2@ijoomla.com</authorEmail>
 	<version>1.0.5</version>
 	<description>This module search courses.</description>
-	
+	<namespace path="src">Alakentu\Module\JlmsSearch</namespace>
+
 	<languages>
-		<language tag="en-GB">en-GB.mod_guru_search.ini</language>
+		<language tag="en-GB">language/en-GB/mod_jlms_search.ini</language>
+		<language tag="en-GB">language/en-GB/mod_jlms_search.sys.ini</language>
+		<language tag="en-ES">language/es-ES/mod_jlms_search.ini</language>
+		<language tag="en-ES">language/es-ES/mod_jlms_search.sys.ini</language>
 	</languages>
 	<updateservers>
-    	<server type="extension">http://update.joomlart.com/service/tracking/j31/guru-search-module.xml</server>
+    	<server type="extension">http://update.joomlart.com/service/tracking/j31/mod_jlms_search.xml</server>
 	</updateservers>
 	<files>
-		<filename module="mod_guru_search">mod_guru_search.php</filename>
-        <filename>index.html</filename>
-        <filename>helper.php</filename>
-        <filename>createthumbs.php</filename>
-		<filename>mod_guru_search.css</filename>
-		<filename>tmpl/default.php</filename>
-        <filename>tmpl/index.html</filename>
+		<filename module="mod_jlms_search">mod_jlms_search.php</filename>
+        <folder>tmpl</folder>
+        <folder>assets</folder>
+        <folder>src</folder>
         <folder>fields</folder>
     </files>
 	
 	<config>
-		<fields name="params" addfieldpath="/modules/mod_guru_search/fields">
+		<fields name="params" addfieldpath="/modules/mod_jlms_search/fields">
 			<fieldset name="basic">
-				<field name="howManyC" type="text" class="input-mini" label="GURU_MODULE_HOW_MANY" size="10" description="" default="10" />
+				<field name="howManyC" type="text" class="input-mini" label="JLMS_MODULE_HOW_MANY" size="10" description="" default="10" />
 				
-				<field name="sortby" type="list" label="GURU_MODULE_SORTBY" default="0">
-					<option value="0">GURU_MODULE_MOST_POPULAR</option>
-					<option value="1">GURU_MODULE_MOST_RECENT</option>
-					<option value="2">GURU_MODULE_RANDOM</option>
+				<field name="sortby" type="list" label="JLMS_MODULE_SORTBY" default="0">
+					<option value="0">JLMS_MODULE_MOST_POPULAR</option>
+					<option value="1">JLMS_MODULE_MOST_RECENT</option>
+					<option value="2">JLMS_MODULE_RANDOM</option>
 				</field>
 
-				<field name="category" type="categories" label="GURU_MODULE_CATEGORY" default="0" />
+				<field name="category" type="categories" label="JLMS_MODULE_CATEGORY" default="0" />
 
-				<field name="showthumb" class="btn-group" type="radio" label="GURU_MODULE_THUMB" default="1">
+				<field name="showthumb" class="btn-group" type="radio" label="JLMS_MODULE_THUMB" default="1">
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
-				<field name="showamountstud" class="btn-group" type="radio" label="GURU_MODULE_AMOUNT_STUD" default="1">
+				<field name="showamountstud" class="btn-group" type="radio" label="JLMS_MODULE_AMOUNT_STUD" default="1">
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
 
-				<field name="showdescription" class="btn-group" type="radio" label="GURU_MODULE_SHOWDESCRIPTION" default="1">
+				<field name="showdescription" class="btn-group" type="radio" label="JLMS_MODULE_SHOWDESCRIPTION" default="1">
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
 				
-				<field name="desclength" type="text" class="input-mini" label="GURU_MODULE_DESC_LENGTH" size="10" description="" default="100" />
+				<field name="desclength" type="text" class="input-mini" label="JLMS_MODULE_DESC_LENGTH" size="10" description="" default="100" />
 				
 				<field name="desclengthtype" type="list" label="" default="0">
-					<option value="0">GURU_MODULE_WORDS</option>
-					<option value="1">GURU_MODULE_CHARACTER</option>
+					<option value="0">JLMS_MODULE_WORDS</option>
+					<option value="1">JLMS_MODULE_CHARACTER</option>
 				</field>
 				
-				<field name="teachername" class="btn-group" type="radio" label="GURU_MODULE_TEACHER_NAME" default="1">
+				<field name="teachername" class="btn-group" type="radio" label="JLMS_MODULE_TEACHER_NAME" default="1">
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>				
